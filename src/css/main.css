@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/*
+Theme Name: Alias
+Theme URI: http://www.hudsoncarolino.com.br
+Author: Hudson Carolino
+Author URI: https://hudsoncarolino.com.br;
+Description: Descrição do thema.
+Version: 1.0
+
+--------------------------------------------
+ESTRUTURAÇÃO BASE
+--------------------------------------------
+**** DECLARAÇÃO DE VARIÁVEIS
+**** ESTILOS GERAIS
+**** BODY
+**** HEADER
+**** FOOTER
+**** PÁGINA INICIAL
+**** EXTRAS
+**** @MEDIA
+*/
+/* DECLARAÇÃO DE VARIÁVEIS */
+:root {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* ESTILOS GERAIS */
+html, body, figure, img, div, section, article, input, header, footer, button, textarea, p, h1, h2, h3, h4, h5, h6, ul, li, a {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: #121212;
+}
+#map {
+    height: 100vh;
+    width: 100%;
+}
