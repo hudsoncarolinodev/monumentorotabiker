@@ -153,7 +153,7 @@ function createTemplate(address){
             <p><strong>Monumento:</strong> ${address.monument}</p>
             <p hidden><strong>Descrição:</strong> ${address.description}</p>
             <p><strong>Endereço:</strong> ${address.address}</p>
-            <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">Instagram <img src="./src/img/instagram.png" alt="Instagram"></a><p>
+            <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">@${address.name} <img src="./src/img/instagram.png" alt="Instagram"></a><p>
             <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
         `
         section.appendChild(button)
