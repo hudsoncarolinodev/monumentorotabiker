@@ -281,6 +281,16 @@ function abrirNoGoogleMaps(e) {
     let address = e.target.getAttribute('data-endeco')?.split(" ")
     const idsTraking = e.target.id
     
+    if(positionUser?.lat && positionUser?.lon){
+        trackCalculateCustomEvent(idsTraking)
+        const destino = 'São Paulo, SP'; // Altere para o destino desejado
+        const url = address.length > 2 ?`https://www.google.com/maps/dir/?api=1&origin=${positionUser.lat},${positionUser.lon}&destination=${e.target.getAttribute('data-endeco')}`:
+        `https://www.google.com/maps/dir/?api=1&origin=${positionUser.lat},${positionUser.lon}&destination=${address[0]},${address[1]}`
+        window.open(url, '_blank');
+
+        return
+    }
+    
     if (navigator.geolocation) {
         // Solicita a localização atual
         navigator.geolocation.getCurrentPosition(
@@ -307,7 +317,24 @@ function abrirNoGoogleMaps(e) {
       //  document.getElementById('localizacao').innerText = 'Geolocalização não é suportada pelo seu navegador.';
     }
 
-   
+}
 
-
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            // Sucesso: obtém as coordenadas e exibe
+            positionUser.lat = position.coords.latitude;
+            positionUser.lon = position.coords.longitude;
+         
+          //  document.getElementById('localizacao').innerText = `Latitude: ${lat}, Longitude: ${lon}`;
+        },
+        function(error) {
+            // Erro: exibe uma mensagem de erro
+            console.error('Erro ao obter a localização:', error.message);
+         //   document.getElementById('localizacao').innerText = `Erro ao obter a localização: ${error.message}`;
+        }
+    );
+} else {
+    // Geolocalização não é suportada
+  //  document.getElementById('localizacao').innerText = 'Geolocalização não é suportada pelo seu navegador.';
 }
