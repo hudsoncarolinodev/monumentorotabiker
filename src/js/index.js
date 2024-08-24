@@ -193,7 +193,7 @@ function initMap() {
                     map,
                     icon: image,
                     }).addListener('click', function() {
-                        window.location = link
+                        window.open(link, '_blank')
                     })
             }
         })
