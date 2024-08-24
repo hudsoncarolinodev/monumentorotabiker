@@ -94,3 +94,27 @@ section a{
 a img{
   max-width: 20px;
 }
+
+.search{
+
+}
+.search h5{
+  font-size: 29px;
+  color: #555;
+}
+.search label{
+  font-size: 12px;
+}
+.search input{
+  display: block;
+  border: solid 1px;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding: 20px 10px;
+}
+
+.listMonument{
+  min-height: 100vh;
+  background-color: #fff;
+}

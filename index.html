@@ -26,6 +26,7 @@
     </script>
     <link rel="stylesheet" href="./src/css/main.css">
     <script type="module" src="./src/js/index.js"></script>
+    <script defer src="./src/js/traking.js"></script>
 </head>
 <body>
    
@@ -37,6 +38,17 @@
         <div id="map"></div>
     </div>
     <main>
+
+        <section class="search">
+            <h5>Buscar Parada:</h5>
+           <form action="/">
+                <label id="search">Pesquise por monumento, parada, endereço</label>
+                <input  id="search" type="text" placeholder="Pesquisar">
+           </form>
+        </section>
+        <div class="listMonument">
+
+        </div>
         
         <article style="display: none;">
             <section>
@@ -46,7 +58,6 @@
                     <h4>Monumentos</h4>
                 </section>
         </article>
-
 
         <section style="display: none;">
             <header>
@@ -79,7 +90,6 @@
        
     </main>
     
-
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbD-3PCr0P9wXG_BBo2VHl_03zdqmcE7M&callback=initMap&v=weekly"
       defer

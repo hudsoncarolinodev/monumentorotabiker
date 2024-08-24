@@ -115,9 +115,13 @@ const addresses = [
     }
 ]
 
-const main = document.querySelector("main")
-      addresses.forEach((address)=>{
-        const section = document.createElement("section")
+const listMonument = document.querySelector(".listMonument")
+addresses.forEach((address)=>{
+    createTemplate(address)
+})
+
+function createTemplate(address){
+    const section = document.createElement("section")
         section.innerHTML = `
             <header>
                 <h2>Parada: ${address.name}</h2>
@@ -127,13 +131,11 @@ const main = document.querySelector("main")
             <p><strong>Monumento:</strong> ${address.monument}</p>
             <p hidden><strong>Descrição:</strong> ${address.description}</p>
             <p><strong>Endereço:</strong> ${address.address}</p>
-            <p><a target="_blank" href="${address.instagram}">Instagram <img src="./src/img/instagram.png" alt="Instagram"></a><p>
-            <p><a target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
+            <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">Instagram <img src="./src/img/instagram.png" alt="Instagram"></a><p>
+            <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
         `
-        main.appendChild(section)
-      })
-
-
+        listMonument.appendChild(section)
+}
 function initMap() {
   
     //CONFIGURAÇÃO MAPAS
@@ -174,6 +176,27 @@ function initMap() {
     }
   
   window.initMap = initMap;
+
+
+  document.querySelector("input").addEventListener('keyup', function(e){
+    const value = e.target.value.toLowerCase()
+    listMonument.innerHTML = ''
+    const filterAddresses = addresses.filter((addresse)=> {
+        if(removerAcentos(addresse.name).includes(value) || removerAcentos(addresse.description).includes(value) || removerAcentos(addresse.address).includes(value) || removerAcentos(addresse.monument).includes(value)){
+            return addresse
+        }
+    })
+    filterAddresses.forEach((address)=>{
+        createTemplate(address)
+    })
+  })
+
+  function removerAcentos(str) {
+    return str
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+}
 
 
  
