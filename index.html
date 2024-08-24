@@ -42,13 +42,20 @@
         <section class="search">
             <h5>Buscar Parada:</h5>
            <form action="/">
-                <label id="search">Pesquise por monumento, parada, endereço</label>
+               <div>
+                <label for="search">Pesquise por monumento, parada, endereço</label>
                 <input  id="search" type="text" placeholder="Pesquisar">
+               </div>
+
+               <div>
+                    <label for="select">Pesquise por estado</label>
+                    <select name="select" id="select">
+                        <option value="all" selected>Todos</option>
+                    </select>
+                </div>
            </form>
         </section>
-        <div class="listMonument">
-
-        </div>
+        <div class="listMonument"></div>
         
         <article style="display: none;">
             <section>

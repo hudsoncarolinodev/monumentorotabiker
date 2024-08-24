@@ -7,7 +7,11 @@ const addresses = [
         description:'BR-476, KM 71, Rastro da Serpente, Bocaiúva do Sul (Passaporte/Carimbo)',
         address: 'Estr. Da Ribeira, km 71, Bocaiúva do Sul - PR, 83450-000',
         flag:'pr',
-        instagram: 'https://www.instagram.com/serpenteando.cafe/'
+        instagram: 'https://www.instagram.com/serpenteando.cafe/',
+        location: {
+            lat: '-25.0777701',
+            lon: '-49.0888728',
+        }
     },
     {
         name: 'Panda Mechanics',
@@ -15,7 +19,11 @@ const addresses = [
         description:'BR-476, KM 71, Rastro da Serpente, Bocaiúva do Sul (Passaporte/Carimbo)',
         address: 'Rua Francisco Castellano, 135 - sob 3 - Jardim das Américas, Curitiba - PR, 81540-370',
         flag:'pr',
-        instagram: 'https://www.instagram.com/pandamechanics/'
+        instagram: 'https://www.instagram.com/pandamechanics/',
+        location: {
+            lat: '-25.467527',
+            lon: '-49.2296066',
+        }
     },
     {
         name: 'Mirante 12',
@@ -23,7 +31,11 @@ const addresses = [
         description:'BR-476, KM 71, Rastro da Serpente, Bocaiúva do Sul (Passaporte/Carimbo)',
         address: 'Estrada geral, SC-390, km 12, Lauro Müller - SC, 88880-000',
         flag:'sc',
-        instagram: 'https://www.instagram.com/mirantedo12/'
+        instagram: 'https://www.instagram.com/mirantedo12/',
+        location: {
+            lat: '-28.3858153',
+            lon: '-49.6376082',
+        }
     },
     {
         name: 'Rota 370 Urubici',
@@ -31,7 +43,11 @@ const addresses = [
         description:'BR-476, KM 71, Rastro da Serpente, Bocaiúva do Sul (Passaporte/Carimbo)',
         address: 'SC-370 - Urubici, SC, 88650-000',
         flag:'sc',
-        instagram: 'https://www.instagram.com/rota370urubici/'
+        instagram: 'https://www.instagram.com/rota370urubici/',
+        location: {
+            lat: null,
+            lon: null,
+        }
     },
     {
         name: 'Rota PR 218',
@@ -122,6 +138,12 @@ addresses.forEach((address)=>{
 
 function createTemplate(address){
     const section = document.createElement("section")
+    const button = document.createElement("button")
+    button.addEventListener("click", abrirNoGoogleMaps)
+    button.innerText = "Calcular rota"
+    button.id = address.monument.replace(" ", "-")
+    button.setAttribute('data-endeco', address?.location?.lat?`${address?.location?.lat} ${address?.location?.lon}`: `${address.address}`)
+  
         section.innerHTML = `
             <header>
                 <h2>Parada: ${address.name}</h2>
@@ -134,6 +156,7 @@ function createTemplate(address){
             <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">Instagram <img src="./src/img/instagram.png" alt="Instagram"></a><p>
             <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
         `
+        section.appendChild(button)
         listMonument.appendChild(section)
 }
 function initMap() {
@@ -186,7 +209,14 @@ function initMap() {
             return addresse
         }
     })
-    filterAddresses.forEach((address)=>{
+    if(filterAddresses.length > 0){
+        filterAddresses.forEach((address)=>{
+            createTemplate(address)
+        })
+
+        return
+    }
+    addresses.forEach((address)=>{
         createTemplate(address)
     })
   })
@@ -199,4 +229,84 @@ function initMap() {
 }
 
 
- 
+function selectState(){
+    const select = document.querySelector("#select")
+    addresses.forEach(address => {
+       
+        const option = document.createElement("option")
+        option.value = address.flag
+        option.innerText = address.flag.toUpperCase()
+        select.appendChild(option)
+       
+    })
+
+    select.addEventListener('change', function(e){
+        listMonument.innerHTML = ''
+        const value = e.target.value
+        trackSelectCustomEvent(value)
+        const filterAddresses = addresses.filter((addresse)=> {
+            if(addresse.flag === value){
+                return addresse
+            }
+        })
+        if(filterAddresses.length > 0){
+            filterAddresses.forEach((address)=>{
+                createTemplate(address)
+            })
+
+            return
+        }
+
+        addresses.forEach((address)=>{
+            createTemplate(address)
+        })
+       
+    })
+}
+selectState()
+
+
+const positionUser = {
+    lat: null,
+    lon: null
+}
+function obterLocalizacao() {
+    
+}
+
+obterLocalizacao()
+
+function abrirNoGoogleMaps(e) {
+    let address = e.target.getAttribute('data-endeco')?.split(" ")
+    const idsTraking = e.target.id
+    
+    if (navigator.geolocation) {
+        // Solicita a localização atual
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                // Sucesso: obtém as coordenadas e exibe
+                positionUser.lat = position.coords.latitude;
+                positionUser.lon = position.coords.longitude;
+                trackCalculateCustomEvent(idsTraking)
+                const destino = 'São Paulo, SP'; // Altere para o destino desejado
+                const url = address.length > 2 ?`https://www.google.com/maps/dir/?api=1&origin=${positionUser.lat},${positionUser.lon}&destination=${e.target.getAttribute('data-endeco')}`:
+                `https://www.google.com/maps/dir/?api=1&origin=${positionUser.lat},${positionUser.lon}&destination=${address[0]},${address[1]}`
+                window.open(url, '_blank');
+             
+              //  document.getElementById('localizacao').innerText = `Latitude: ${lat}, Longitude: ${lon}`;
+            },
+            function(error) {
+                // Erro: exibe uma mensagem de erro
+                console.error('Erro ao obter a localização:', error.message);
+             //   document.getElementById('localizacao').innerText = `Erro ao obter a localização: ${error.message}`;
+            }
+        );
+    } else {
+        // Geolocalização não é suportada
+      //  document.getElementById('localizacao').innerText = 'Geolocalização não é suportada pelo seu navegador.';
+    }
+
+   
+
+
+}

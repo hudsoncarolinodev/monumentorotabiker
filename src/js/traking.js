@@ -7,6 +7,22 @@ function trackInstagramCustomEvent(e) {
     })
   }
 
+  function trackSelectCustomEvent(value) {
+      gtag('event', 'custom_event', {
+        'event_category': 'Select Pesquisa estado',
+        'event_label': `Pesquisa ${value}`,
+        'value': 1
+      })
+    }
+
+    function trackCalculateCustomEvent(value) {
+        gtag('event', 'custom_event', {
+          'event_category': 'Botão Calcular rota',
+          'event_label': `Calculo de rota ${value}`,
+          'value': 1
+        })
+      }
+
   document.querySelectorAll('.instagram').forEach((el)=>{
     el.addEventListener('click', trackInstagramCustomEvent)
   })
