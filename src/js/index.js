@@ -173,19 +173,18 @@ function initMap() {
     const geocoder = new google.maps.Geocoder();
 
     addresses.forEach(address => {
-        geocodeAddress(geocoder, map, address.address);
+        geocodeAddress(geocoder, map, address.address, address.instagram);
        
     });
     
     
   }
 
-  async function geocodeAddress(geocoder, map, address) {
+  async function geocodeAddress(geocoder, map, address, link) {
         await geocoder.geocode({ address: address }, (results, status) => {
             if(status == 'OK'){
 
                 const image = "./src/img/monument.png";
-                
                     const beachMarker = new google.maps.Marker({
                     position: {
                         lat: results[0].geometry.location.lat(),
@@ -193,7 +192,9 @@ function initMap() {
                     },
                     map,
                     icon: image,
-                    });
+                    }).addListener('click', function() {
+                        window.location = link
+                    })
             }
         })
     }
