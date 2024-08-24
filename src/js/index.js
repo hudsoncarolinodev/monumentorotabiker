@@ -111,7 +111,7 @@ const main = document.querySelector("main")
                 <img src="./src/img/${address.flag}.png" alt="${address.address}">
             </header>
             <p><strong>Monumento:</strong> ${address.monument}</p>
-            <p><strong>Descrição:</strong> ${address.description}</p>
+            <p hidden><strong>Descrição:</strong> ${address.description}</p>
             <p><strong>Endereço:</strong> ${address.address}</p>
         `
         main.appendChild(section)
