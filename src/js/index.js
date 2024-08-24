@@ -203,7 +203,7 @@ function initMap() {
 
 
   document.querySelector("input").addEventListener('keyup', function(e){
-    const value = e.target.value.toLowerCase()
+    const value = e.target.value.toLowerCase().trim()
     listMonument.innerHTML = ''
     const filterAddresses = addresses.filter((addresse)=> {
         if(removerAcentos(addresse.name).includes(value) || removerAcentos(addresse.description).includes(value) || removerAcentos(addresse.address).includes(value) || removerAcentos(addresse.monument).includes(value)){
