@@ -21,6 +21,19 @@ function trackInstagramCustomEvent(e) {
           'event_label': `Calculo de rota ${value}`,
           'value': 1
         })
+
+      db.collection("eventos").add({
+          categoria: 'custom_event',
+          acao: 'botao-calcular-rota',
+          rotulo: `Calculo de rota ${value}`,
+          data: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then((docRef) => {
+          console.log("Evento registrado com ID: ", docRef.id);
+      })
+      .catch((error) => {
+          console.error("Erro ao registrar evento: ", error);
+      });
       }
 
   document.querySelectorAll('.instagram').forEach((el)=>{
