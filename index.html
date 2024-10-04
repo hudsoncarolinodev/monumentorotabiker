@@ -24,9 +24,6 @@
 
     gtag('config', 'G-NDC7NKP9WR');
     </script>
-     <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js"></script>
     <link rel="stylesheet" href="./src/css/main.css">
     <script type="module" src="./src/js/firebase.js"></script>
     <script type="module" src="./src/js/index.js"></script>
@@ -106,66 +103,5 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbD-3PCr0P9wXG_BBo2VHl_03zdqmcE7M&callback=initMap&v=weekly"
       defer
     ></script>
-
-    <script defer type="module">
-          const firebaseConfig = {
-            apiKey: "AIzaSyDYCmR0lHkO5Abky9PxsE2-si-prca0ZnM",
-            authDomain: "rota-biker-ee90a.firebaseapp.com",
-            projectId: "rota-biker-ee90a",
-            storageBucket: "rota-biker-ee90a.appspot.com",
-            messagingSenderId: "266619444419",
-            appId: "1:266619444419:web:45ddbc54078a55f0acd676",
-            measurementId: "G-PB2M72YXL9"
-        }
-
-
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-        const analytics = getAnalytics(app);
-
-        function trackInstagramCustomEvent(e) {
-  const title = e?.target?.title?.replace(" ", "-")
-    gtag('event', 'custom_event', {
-      'event_category': 'Instagram Parada',
-      'event_label': `Parada ${title}`,
-      'value': 1
-    })
-  }
-
-  function trackSelectCustomEvent(value) {
-      gtag('event', 'custom_event', {
-        'event_category': 'Select Pesquisa estado',
-        'event_label': `Pesquisa ${value}`,
-        'value': 1
-      })
-    }
-
-    
-    function trackCalculateCustomEvent(value) {
-        gtag('event', 'custom_event', {
-          'event_category': 'Botão Calcular rota',
-          'event_label': `Calculo de rota ${value}`,
-          'value': 1
-        })
-
-      db.collection("eventos").add({
-          categoria: 'custom_event',
-          acao: 'botao-calcular-rota',
-          rotulo: `Calculo de rota ${value}`,
-          data: firebase.firestore.FieldValue.serverTimestamp()
-      })
-      .then((docRef) => {
-          console.log("Evento registrado com ID: ", docRef.id);
-      })
-      .catch((error) => {
-          console.error("Erro ao registrar evento: ", error);
-      });
-      }
-
-  document.querySelectorAll('.instagram').forEach((el)=>{
-    el.addEventListener('click', trackInstagramCustomEvent)
-  })
-
-    </script>
 </body>
 </html>
