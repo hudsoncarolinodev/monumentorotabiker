@@ -9,21 +9,23 @@ const addresses = [
         flag:'pr',
         instagram: 'https://www.instagram.com/serpenteando.cafe/',
         location: {
-            lat: '-25.0777701',
-            lon: '-49.0888728',
-        }
+            lat: '-25.07765438720003',
+            lon: '-49.086307360061866',
+        },
+        underconstruction: '',
     },
     {
         name: 'Panda Mechanics',
         monument: 'Monumento 2',
         description:'Passaporte/Carimbo',
-        address: 'Rua Francisco Castellano, 135 - sob 3 - Jardim das Américas, Curitiba - PR, 81540-370',
+        address: 'Av. Com. Franco, 4387 - Uberaba, Curitiba - PR, 81530-440',
         flag:'pr',
         instagram: 'https://www.instagram.com/pandamechanics/',
         location: {
-            lat: '-25.467527',
-            lon: '-49.2296066',
-        }
+            lat: '-25.469752011034366',
+            lon: '-49.23041471813094',
+        },
+        underconstruction: '',
     },
     {
         name: 'Mirante 12',
@@ -33,109 +35,191 @@ const addresses = [
         flag:'sc',
         instagram: 'https://www.instagram.com/mirantedo12/',
         location: {
-            lat: '-28.3858153',
-            lon: '-49.6376082',
-        }
+            lat: '-28.38481783793182',
+            lon: '-49.485074181599536',
+        },
+        underconstruction: '',
     },
     {
-        name: 'Rota 370 Urubici',
+        name: 'Rota 370',
         monument: 'Monumento 4',
-        description:'',
+        description:'Passaporte/Carimbo',
         address: 'SC-370 - Urubici, SC, 88650-000',
         flag:'sc',
         instagram: 'https://www.instagram.com/rota370urubici/',
         location: {
-            lat: null,
-            lon: null,
-        }
+            lat: '-27.998621009965447',
+            lon: '-49.554484318281325',
+        },
+        underconstruction: '',
     },
     {
         name: 'Rota PR 218',
         monument: 'Monumento 5',
-        description:'',
+        description:'Passaporte/Carimbo',
         address: 'R. Benedito Salles, 2671 - Carlópolis, PR, 86420-000',
         flag:'pr',
-        instagram: 'https://www.instagram.com/rotapr218/'
+        instagram: 'https://www.instagram.com/rotapr218/',
+        location: {
+            lat: '-23.419699777783975',
+            lon: '-49.70876704414918',
+        },
+        underconstruction: '',
     },
     {
         name: 'Rota Bike Café',
         monument: 'Monumento 6',
-        description:'',
-        address: '',
+        description:'Passaporte/Carimbo',
+        address: 'Estr. Geral Rio Milanês - Cedro Alto, Rio dos Cedros - SC, 89121-000',
         flag:'sc',
-        instagram: 'https://www.instagram.com/rotabikecafe/'
+        instagram: 'https://www.instagram.com/rotabikecafe/',
+        location: {
+            lat: '-26.672052483667084',
+            lon: '-49.32140163583835',
+        },
+        underconstruction: '',
     },
     {
         name: 'Container da Serra',
         monument: 'Monumento 7',
-        description:'',
-        address: '',
+        description:'Passaporte/Carimbo',
+        address: 'SC-477 - São João da Esperança, Dr. Pedrinho - SC, 89126-000',
         flag:'sc',
-        instagram: 'https://www.instagram.com/containerdaserra/'
+        instagram: 'https://www.instagram.com/containerdaserra/',
+        location: {
+            lat: '-26.625422574122982',
+            lon: '-49.51658913206693',
+        },
+        underconstruction: '',
     },
     {
         name: '261',
         monument: 'Monumento 8',
-        description:'',
+        description:'Passaporte/Carimbo',
         address: 'R. Avelino Domingues Menk, 114 - Centro, Guapiara - SP, 18310-000',
         flag:'sp',
-        instagram: 'https://www.instagram.com/parada_261/'
+        instagram: 'https://www.instagram.com/parada_261/',
+        location: {
+            lat: '-24.18979485759995',
+            lon: '-48.536707597604085',
+        },
+        underconstruction: '',
     },
     {
         name: 'Posto Rota 090',
         monument: 'Monumento 9',
-        description:'',
+        description:'Passaporte/Carimbo',
         address: 'PR-090, 147 - Km 147, Piraí do Sul - PR, 84240-000',
         flag:'pr',
-        instagram: 'https://www.instagram.com/rota090/'
+        instagram: 'https://www.instagram.com/rota090/',
+        location: {
+            lat: '-24.53785525770189',
+            lon: '-49.95786054160373',
+        },
+        underconstruction: '',
     },
     {
         name: 'Município de Jaguarão-RS',
         monument: 'Monumento 10',
         description:'',
-        address: 'Av. Vinte e Sete de Janeiro, 422 - Centro, Jaguarão - RS, 96300-000',
+        address: 'Av. 20 de Setembro, 401-303, Jaguarão - RS, 96300-000',
         flag:'rs',
-        instagram: 'https://www.instagram.com/p/C4YEyZ8OhXW/?locale=en_GB%2Cen_GB'
+        instagram: 'https://www.instagram.com/p/C4YEyZ8OhXW/?locale=en_GB%2Cen_GB',
+        location: {
+            lat: '-32.56858123169629',
+            lon: '-53.374974233408736',
+        },
+        underconstruction: 'Em construção'
     },
     {
         name: 'Pag Bier Cervejaria',
         monument: 'Monumento 11',
-        description:'',
+        description:'Passaporte/Carimbo',
         address: 'Rod. Júlio Garcia - Paranoá, Brasília - DF',
         flag:'df',
-        instagram: 'https://www.instagram.com/padbiercervejaria/?g=5'
+        instagram: 'https://www.instagram.com/padbiercervejaria/?g=5',
+        location: {
+            lat: '-15.998823647782528',
+            lon: '-47.56032846441805',
+        },
+        underconstruction: '',
     },
     {
-        name: 'Pit Stop Canastra',
+        name: 'Centro Cultural Movimento',
         monument: 'Monumento 12',
-        description:'',
-        address: 'MJGV+4M - São Roque de Minas, MG, 37928-000',
-        flag:'mg',
-        instagram:'https://www.instagram.com/pitstopcanastra/'
+        description:'Passaporte/Carimbo',
+        address: 'R. João Leonardelli, 96, Socorro - SP, 13960-000',
+        flag:'sp',
+        instagram:'https://www.instagram.com/centroculturalmovimento/',
+        location: {
+            lat: '-22.59751010183526',
+            lon: '-46.52584386476498',
+        },
+        underconstruction: '',
     },
     {
         name: 'Camping e Cabanas Portal dos Campos',
         monument: 'Monumento 13',
-        description:'',
-        address: 'Estrada Pery Pereira Costa - Itaiacoca, Ponta Grossa - PR, 84110-000',
+        description:'Passaporte/Carimbo',
+        address: 'Estr. Pery Pereira Costa - Itaiacoca, Ponta Grossa - PR, 84110-000',
         flag:'pr',
-        instagram: 'https://www.instagram.com/portal.dos.campos/'
+        instagram: 'https://www.instagram.com/portal.dos.campos/',
+        location: {
+            lat: '-25.141989977627095',
+            lon: '-49.981160664418056',
+        },
+        underconstruction: '',
     },
     {
         name: 'Parador 158',
         monument: 'Monumento 14',
-        description:'',
+        description:'Passaporte/Carimbo',
         address: 'BR 158 Km 308, n° 13325 Centro, Itaara - RS, 97185-000',
         flag:'rs',
-        instagram:'https://www.instagram.com/parador158/'
+        instagram:'https://www.instagram.com/parador158/',
+        location: {
+            lat: '-29.60089850647886',
+            lon: '-53.76773625611631',
+        },
+        underconstruction: '',
     },
     {
-        name: 'Paranamanema - Bar & Restaurante Original Piraju ',
-        monument: 'Monumento 16',
+        name: 'Garimpo em Atividade | Passeio Subterrâneo',
+        monument: 'Monumento 15',
         description:'Passaporte/Carimbo',
+        address: 'Avenida Bento Gonçalves, 736, Ametista do Sul 98465-000',
+        flag:'rs',
+        instagram:'https://www.instagram.com/garimpoematividade/',
+        location: {
+            lat: '-27.357095498712173',
+            lon: '-53.19022868387065',
+        },
+        underconstruction: 'Em construção'
+    },
+    {
+        name: 'Paranamanema - Bar & Restaurante Original Piraju',
+        monument: 'Monumento 16',
+        description:'',
         address: 'Av. Dois - FECAPI, Piraju - SP, 18800-000',
         flag:'sp',
         instagram:'https://www.instagram.com/baroriginalpiraju/',
+        location: {
+            lat: '-23.184228109612075',
+            lon: '-49.39058729977387',
+        },
+        underconstruction: 'Em construção'
+    },
+    {
+        name: 'Pit Stop Canastra',
+        monument: 'Monumento 17',
+        description:'Passaporte',
+        address: 'MJGV+4M - São Roque de Minas, MG, 37928-000',
+        flag:'mg',
+        instagram:'https://www.instagram.com/pit_stop_canastra/',
+        location: {
+            lat: '-20.324547712287572',
+            lon: '-46.35569209146341',
+        },
         underconstruction: 'Em construção'
     }
 ]
@@ -152,27 +236,32 @@ function createTemplate(address){
     button.innerText = "Calcular rota"
     button.id = address.monument.replace(" ", "-")
     button.setAttribute('data-endeco', address?.location?.lat?`${address?.location?.lat} ${address?.location?.lon}`: `${address.address}`)
-  
-        section.innerHTML = `
-            <header>
-                <h2>Parada: ${address.name}</h2>
-               
-                <img src="./src/img/${address.flag}.png" alt="${address.address}">
-            </header>
-            <p><strong>Monumento:</strong> ${address.monument} - <span>${address.underconstruction}<span></p>
-            <p><strong>Descrição:</strong> ${address.description}</p>
-            <p><strong>Endereço:</strong> ${address.address}</p>
-            <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">@${address.name} <img src="./src/img/instagram.png" alt="Instagram"></a><p>
-            <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
-        `
-        section.appendChild(button)
-        listMonument.appendChild(section)
+    
+    section.innerHTML = `
+    <header>
+    <h2>Parada: ${address.name}</h2>
+    
+    <img src="./src/img/${address.flag}.png" alt="${address.address}">
+    </header>
+    <p><strong>Monumento:</strong> ${address.monument}<span class="em-construcao">${address.underconstruction}<span></p>
+    <p><strong>Descrição:</strong> ${address.description}</p>
+    <p><strong>Endereço:</strong> ${address.address}</p>
+    <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">@${address.name} <img src="./src/img/instagram.png" alt="Instagram"></a><p>
+    <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
+    `
+    const underConstruction = section.querySelector(".em-construcao");
+    if (!address.underconstruction) {
+        underConstruction.style.display = "none";
+    }
+
+    section.appendChild(button)
+    listMonument.appendChild(section)
 }
 function initMap() {
-  
+    
     //CONFIGURAÇÃO MAPAS
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 5,
+        zoom: 5,
       center: { lat: -23.6824124, lng: -46.5952992 },
       styles: mapStyle
     });
