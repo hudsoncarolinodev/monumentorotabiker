@@ -17,7 +17,7 @@ const addresses = [
     {
         name: 'Panda Mechanics',
         monument: 'Monumento 2',
-        description:'Passaporte/Carimbo'
+        description:'Passaporte/Carimbo',
         address: 'Av. Com. Franco, 4387 - Uberaba, Curitiba - PR, 81530-440',
         flag:'pr',
         instagram: 'https://www.instagram.com/pandamechanics/',
