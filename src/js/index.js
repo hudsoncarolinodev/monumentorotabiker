@@ -132,7 +132,7 @@ const addresses = [
         underconstruction: 'Em construção'
     },
     {
-        name: 'Pag Bier Cervejaria',
+        name: 'Pag Bier',
         monument: 'Monumento 11',
         description:'Passaporte/Carimbo',
         address: 'Rod. Júlio Garcia - Paranoá, Brasília - DF',
@@ -186,7 +186,7 @@ const addresses = [
     {
         name: 'Garimpo em Atividade | Passeio Subterrâneo',
         monument: 'Monumento 15',
-        description:'Passaporte/Carimbo',
+        description:'',
         address: 'Avenida Bento Gonçalves, 736, Ametista do Sul 98465-000',
         flag:'rs',
         instagram:'https://www.instagram.com/garimpoematividade/',
