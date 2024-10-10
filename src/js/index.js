@@ -9,8 +9,8 @@ const addresses = [
         flag:'pr',
         instagram: 'https://www.instagram.com/serpenteando.cafe/',
         location: {
-            lat: '-25.0777701',
-            lon: '-49.0888728',
+            lat: '-25.07765438720003',
+            lon: '-49.086307360061866',
         },
         underconstruction: '',
     },
@@ -87,8 +87,8 @@ const addresses = [
         flag:'sc',
         instagram: 'https://www.instagram.com/containerdaserra/',
         location: {
-            lat: '-26.625251295644553',
-            lon: '-49.516604122090236',
+            lat: '-26.625422574122982',
+            lon: '-49.51658913206693',
         },
         underconstruction: '',
     },
@@ -100,8 +100,8 @@ const addresses = [
         flag:'sp',
         instagram: 'https://www.instagram.com/parada_261/',
         location: {
-            lat: '-24.189762451393058',
-            lon: '-48.53669467656852',
+            lat: '-24.18979485759995',
+            lon: '-48.536707597604085',
         },
         underconstruction: '',
     },
@@ -122,12 +122,12 @@ const addresses = [
         name: 'Município de Jaguarão-RS',
         monument: 'Monumento 10',
         description:'',
-        address: 'Av. Vinte e Sete de Janeiro, 422 - Centro, Jaguarão - RS, 96300-000',
+        address: 'Av. 20 de Setembro, 401-303, Jaguarão - RS, 96300-000',
         flag:'rs',
         instagram: 'https://www.instagram.com/p/C4YEyZ8OhXW/?locale=en_GB%2Cen_GB',
         location: {
-            lat: '-24.53785525770189',
-            lon: '-49.95786054160373',
+            lat: '-32.56858123169629',
+            lon: '-53.374974233408736',
         },
         underconstruction: 'Em construção'
     },
@@ -148,12 +148,12 @@ const addresses = [
         name: 'Centro Cultural Movimento',
         monument: 'Monumento 12',
         description:'Passaporte/Carimbo',
-        address: 'Antiga Estação Ferroviária - Praça Rachid José Maluf, 83 - Centro, Socorro - SP, 13960-000',
+        address: 'R. João Leonardelli, 96, Socorro - SP, 13960-000',
         flag:'sp',
         instagram:'https://www.instagram.com/centroculturalmovimento/',
         location: {
-            lat: '-22.5972107030272',
-            lon: '-46.525623894477434',
+            lat: '-22.59751010183526',
+            lon: '-46.52584386476498',
         },
         underconstruction: '',
     },
@@ -217,8 +217,8 @@ const addresses = [
         flag:'mg',
         instagram:'https://www.instagram.com/pit_stop_canastra/',
         location: {
-            lat: '-20.324421921896455',
-            lon: '-46.35577504907368',
+            lat: '-20.324547712287572',
+            lon: '-46.35569209146341',
         },
         underconstruction: 'Em construção'
     }
