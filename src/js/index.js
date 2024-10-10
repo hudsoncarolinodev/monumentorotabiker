@@ -17,7 +17,7 @@ const addresses = [
     {
         name: 'Panda Mechanics',
         monument: 'Monumento 2',
-        description:'Passaporte/Carimbo',
+        description:'Passaporte/Carimbo'
         address: 'Av. Com. Franco, 4387 - Uberaba, Curitiba - PR, 81530-440',
         flag:'pr',
         instagram: 'https://www.instagram.com/pandamechanics/',
@@ -132,7 +132,7 @@ const addresses = [
         underconstruction: 'Em construção'
     },
     {
-        name: 'Pag Bier',
+        name: 'Pad Bier Cervejaria',
         monument: 'Monumento 11',
         description:'Passaporte/Carimbo',
         address: 'Rod. Júlio Garcia - Paranoá, Brasília - DF',
