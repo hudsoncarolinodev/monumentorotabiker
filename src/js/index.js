@@ -236,27 +236,32 @@ function createTemplate(address){
     button.innerText = "Calcular rota"
     button.id = address.monument.replace(" ", "-")
     button.setAttribute('data-endeco', address?.location?.lat?`${address?.location?.lat} ${address?.location?.lon}`: `${address.address}`)
-  
-        section.innerHTML = `
-            <header>
-                <h2>Parada: ${address.name}</h2>
-               
-                <img src="./src/img/${address.flag}.png" alt="${address.address}">
-            </header>
-            <p><strong>Monumento:</strong> ${address.monument} - <span>${address.underconstruction}<span></p>
-            <p><strong>Descrição:</strong> ${address.description}</p>
-            <p><strong>Endereço:</strong> ${address.address}</p>
-            <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">@${address.name} <img src="./src/img/instagram.png" alt="Instagram"></a><p>
-            <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
-        `
-        section.appendChild(button)
-        listMonument.appendChild(section)
+    
+    section.innerHTML = `
+    <header>
+    <h2>Parada: ${address.name}</h2>
+    
+    <img src="./src/img/${address.flag}.png" alt="${address.address}">
+    </header>
+    <p><strong>Monumento:</strong> ${address.monument}<span class="em-construcao">${address.underconstruction}<span></p>
+    <p><strong>Descrição:</strong> ${address.description}</p>
+    <p><strong>Endereço:</strong> ${address.address}</p>
+    <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">@${address.name} <img src="./src/img/instagram.png" alt="Instagram"></a><p>
+    <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
+    `
+    const underConstruction = section.querySelector(".em-construcao");
+    if (!address.underconstruction) {
+        underConstruction.style.display = "none";
+    }
+
+    section.appendChild(button)
+    listMonument.appendChild(section)
 }
 function initMap() {
-  
+    
     //CONFIGURAÇÃO MAPAS
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 5,
+        zoom: 5,
       center: { lat: -23.6824124, lng: -46.5952992 },
       styles: mapStyle
     });
