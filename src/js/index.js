@@ -132,7 +132,7 @@ const addresses = [
         underconstruction: 'Em construção'
     },
     {
-        name: 'Pag Bier',
+        name: 'Pad Bier Cervejaria',
         monument: 'Monumento 11',
         description:'Passaporte/Carimbo',
         address: 'Rod. Júlio Garcia - Paranoá, Brasília - DF',
