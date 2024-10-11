@@ -368,53 +368,36 @@ function selectState(){
     })
 
 
-    const selectUnderConstruction = document.querySelector("#select-underConstruction")
+    const filtro = document.querySelector("#filtro")
 
-    const optionUnderConstrucion = document.createElement("option")
-    optionUnderConstrucion.innerText = "Em construção"
-    selectUnderConstruction.appendChild(optionUnderConstrucion)
-
-    selectUnderConstruction.addEventListener('change', function(e){
-        listMonument.innerHTML = ''
-        const value = e.target.value
-        trackSelectCustomEvent(value)
-        const filterAddresses = addresses.filter((addresse)=> {
-            if(addresse.underconstruction === value){
-                return addresse
-            }
-        })
-        if(filterAddresses.length > 0){
-            filterAddresses.forEach((address)=>{
-                createTemplate(address)
-            })
-
-            return
-        }
-
-        addresses.forEach((address)=>{
-            createTemplate(address)
-        })
-       
-    })
-    
-    const selectPassaporteCarimbo = document.querySelector("#select-PassaporteCarimbo")
-
-    const optionPassaporteCarimbo = document.createElement("option")
-    optionPassaporteCarimbo.innerText = "Passaporte/Carimbo"
-    selectPassaporteCarimbo.appendChild(optionPassaporteCarimbo)
+    const optionUnderConstruction = document.createElement("option")
+    optionUnderConstruction.value = "Em construção"
+    optionUnderConstruction.innerText = "Em construção"
+    filtro.appendChild(optionUnderConstruction)
 
     const optionPassaporte = document.createElement("option")
+    optionPassaporte.value = "Passaporte"
     optionPassaporte.innerText = "Passaporte"
-    selectPassaporteCarimbo.appendChild(optionPassaporte)
-    
-    selectPassaporteCarimbo.addEventListener('change', function(e){
+    filtro.appendChild(optionPassaporte)
+
+    const optionCarimbo = document.createElement("option")
+    optionCarimbo.value = "Carimbo"
+    optionCarimbo.innerText = "Carimbo"
+    filtro.appendChild(optionCarimbo)
+
+    const optionPassaporteCarimbo = document.createElement("option")
+    optionPassaporteCarimbo.value = "Passaporte/Carimbo"
+    optionPassaporteCarimbo.innerText = "Passaporte/Carimbo"
+    filtro.appendChild(optionPassaporteCarimbo)
+
+    filtro.addEventListener('change', function(e){
         listMonument.innerHTML = ''
         const value = e.target.value
         trackSelectCustomEvent(value)
         const filterAddresses = addresses.filter((addresse)=> {
-            if(addresse.description === value){
-                return addresse
-            }
+            return (
+                addresse.underconstruction === value || addresse.description.includes(value)
+            )
         })
         if(filterAddresses.length > 0){
             filterAddresses.forEach((address)=>{
@@ -427,7 +410,6 @@ function selectState(){
         addresses.forEach((address)=>{
             createTemplate(address)
         })
-       
     })
 }
 selectState()
