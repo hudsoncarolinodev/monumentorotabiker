@@ -366,6 +366,36 @@ function selectState(){
         })
        
     })
+
+
+    const selectUnderConstruction = document.querySelector("#select-underConstruction")
+
+    const optionUnderConstrucion = document.createElement("option")
+    optionUnderConstrucion.innerText = "Em construção"
+    selectUnderConstruction.appendChild(optionUnderConstrucion)
+
+    selectUnderConstruction.addEventListener('change', function(e){
+        listMonument.innerHTML = ''
+        const value = e.target.value
+        trackSelectCustomEvent(value)
+        const filterAddresses = addresses.filter((addresse)=> {
+            if(addresse.underconstruction === value){
+                return addresse
+            }
+        })
+        if(filterAddresses.length > 0){
+            filterAddresses.forEach((address)=>{
+                createTemplate(address)
+            })
+
+            return
+        }
+
+        addresses.forEach((address)=>{
+            createTemplate(address)
+        })
+       
+    })    
 }
 selectState()
 
