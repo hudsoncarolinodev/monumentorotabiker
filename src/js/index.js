@@ -395,7 +395,40 @@ function selectState(){
             createTemplate(address)
         })
        
-    })    
+    })
+    
+    const selectPassaporteCarimbo = document.querySelector("#select-PassaporteCarimbo")
+
+    const optionPassaporteCarimbo = document.createElement("option")
+    optionPassaporteCarimbo.innerText = "Passaporte/Carimbo"
+    selectPassaporteCarimbo.appendChild(optionPassaporteCarimbo)
+
+    const optionPassaporte = document.createElement("option")
+    optionPassaporte.innerText = "Passaporte"
+    selectPassaporteCarimbo.appendChild(optionPassaporte)
+    
+    selectPassaporteCarimbo.addEventListener('change', function(e){
+        listMonument.innerHTML = ''
+        const value = e.target.value
+        trackSelectCustomEvent(value)
+        const filterAddresses = addresses.filter((addresse)=> {
+            if(addresse.description === value){
+                return addresse
+            }
+        })
+        if(filterAddresses.length > 0){
+            filterAddresses.forEach((address)=>{
+                createTemplate(address)
+            })
+
+            return
+        }
+
+        addresses.forEach((address)=>{
+            createTemplate(address)
+        })
+       
+    })
 }
 selectState()
 
