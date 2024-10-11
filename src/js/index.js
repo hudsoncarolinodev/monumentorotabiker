@@ -396,7 +396,7 @@ function selectState(){
         trackSelectCustomEvent(value)
         const filterAddresses = addresses.filter((addresse)=> {
             return (
-                addresse.underconstruction === value || addresse.description.includes(value)
+                addresse.underconstruction == value || addresse.description === value
             )
         })
         if(filterAddresses.length > 0){
@@ -406,10 +406,6 @@ function selectState(){
 
             return
         }
-
-        addresses.forEach((address)=>{
-            createTemplate(address)
-        })
     })
 }
 selectState()
