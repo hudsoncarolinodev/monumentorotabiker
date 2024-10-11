@@ -12,7 +12,7 @@ const addresses = [
             lat: '-25.07765438720003',
             lon: '-49.086307360061866',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Panda Mechanics',
@@ -25,7 +25,7 @@ const addresses = [
             lat: '-25.469752011034366',
             lon: '-49.23041471813094',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Mirante 12',
@@ -38,7 +38,7 @@ const addresses = [
             lat: '-28.38481783793182',
             lon: '-49.485074181599536',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Rota 370',
@@ -51,7 +51,7 @@ const addresses = [
             lat: '-27.998621009965447',
             lon: '-49.554484318281325',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Rota PR 218',
@@ -64,7 +64,7 @@ const addresses = [
             lat: '-23.419699777783975',
             lon: '-49.70876704414918',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Rota Bike Café',
@@ -77,7 +77,7 @@ const addresses = [
             lat: '-26.672052483667084',
             lon: '-49.32140163583835',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Container da Serra',
@@ -90,7 +90,7 @@ const addresses = [
             lat: '-26.625422574122982',
             lon: '-49.51658913206693',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: '261',
@@ -103,7 +103,7 @@ const addresses = [
             lat: '-24.18979485759995',
             lon: '-48.536707597604085',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Posto Rota 090',
@@ -116,7 +116,7 @@ const addresses = [
             lat: '-24.53785525770189',
             lon: '-49.95786054160373',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Município de Jaguarão-RS',
@@ -142,7 +142,7 @@ const addresses = [
             lat: '-15.998823647782528',
             lon: '-47.56032846441805',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Centro Cultural Movimento',
@@ -155,7 +155,7 @@ const addresses = [
             lat: '-22.59751010183526',
             lon: '-46.52584386476498',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Camping e Cabanas Portal dos Campos',
@@ -168,7 +168,7 @@ const addresses = [
             lat: '-25.141989977627095',
             lon: '-49.981160664418056',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Parador 158',
@@ -181,7 +181,7 @@ const addresses = [
             lat: '-29.60089850647886',
             lon: '-53.76773625611631',
         },
-        underconstruction: '',
+        underconstruction: 'Construído',
     },
     {
         name: 'Garimpo em Atividade | Passeio Subterrâneo',
@@ -244,14 +244,19 @@ function createTemplate(address){
     <img src="./src/img/${address.flag}.png" alt="${address.address}">
     </header>
     <p><strong>Monumento:</strong> ${address.monument}<span class="em-construcao">${address.underconstruction}<span></p>
-    <p><strong>Descrição:</strong> ${address.description}</p>
+    <p class="description"><strong>Descrição:</strong> ${address.description}</p>
     <p><strong>Endereço:</strong> ${address.address}</p>
     <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">@${address.name} <img src="./src/img/instagram.png" alt="Instagram"></a><p>
     <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
     `
-    const underConstruction = section.querySelector(".em-construcao");
-    if (!address.underconstruction) {
-        underConstruction.style.display = "none";
+    const underConstruction = section.querySelector(".em-construcao")
+    if (address.underconstruction == "Construído") {
+        underConstruction.style.display = "none"
+    }
+
+    const description = section.querySelector(".description")
+    if(!address.description) {
+        description.style.display = "none"
     }
 
     section.appendChild(button)
