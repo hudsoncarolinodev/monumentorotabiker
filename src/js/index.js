@@ -129,7 +129,7 @@ const addresses = [
             lat: '-32.56858123169629',
             lon: '-53.374974233408736',
         },
-        underconstruction: 'Em construção'
+        underconstruction: 'Em Construção'
     },
     {
         name: 'Pad Bier Cervejaria',
@@ -194,7 +194,7 @@ const addresses = [
             lat: '-27.357095498712173',
             lon: '-53.19022868387065',
         },
-        underconstruction: 'Em construção'
+        underconstruction: 'Em Construção'
     },
     {
         name: 'Paranamanema - Bar & Restaurante Original Piraju',
@@ -207,7 +207,7 @@ const addresses = [
             lat: '-23.184228109612075',
             lon: '-49.39058729977387',
         },
-        underconstruction: 'Em construção'
+        underconstruction: 'Em Construção'
     },
     {
         name: 'Pit Stop Canastra',
@@ -220,7 +220,7 @@ const addresses = [
             lat: '-20.324547712287572',
             lon: '-46.35569209146341',
         },
-        underconstruction: 'Em construção'
+        underconstruction: 'Em Construção'
     }
 ]
 
@@ -250,7 +250,7 @@ function createTemplate(address){
     <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
     `
     const underConstruction = section.querySelector(".em-construcao")
-    if (address.underconstruction == "Construído") {
+    if (address.underconstruction !== "Em Construção") {
         underConstruction.style.display = "none"
     }
 
@@ -371,8 +371,8 @@ function selectState(){
     const filtro = document.querySelector("#filtro")
 
     const optionUnderConstruction = document.createElement("option")
-    optionUnderConstruction.value = "Em construção"
-    optionUnderConstruction.innerText = "Em construção"
+    optionUnderConstruction.value = "Em Construção"
+    optionUnderConstruction.innerText = "Em Construção"
     filtro.appendChild(optionUnderConstruction)
 
     const optionPassaporte = document.createElement("option")
