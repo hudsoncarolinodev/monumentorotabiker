@@ -370,30 +370,32 @@ function selectState(){
 
     const filtro = document.querySelector("#filtro")
 
-    const optionUnderConstruction = document.createElement("option")
-    optionUnderConstruction.value = "Em Construção"
-    optionUnderConstruction.innerText = "Em Construção"
-    filtro.appendChild(optionUnderConstruction)
+    const options = [
+        {value: "Em Construção"},
+        {value: "Passaporte"},
+        {value: "Carimbo"},
+        {value: "Passaporte/Carimbo"},
+    ]
 
-    const optionPassaporte = document.createElement("option")
-    optionPassaporte.value = "Passaporte"
-    optionPassaporte.innerText = "Passaporte"
-    filtro.appendChild(optionPassaporte)
-
-    const optionCarimbo = document.createElement("option")
-    optionCarimbo.value = "Carimbo"
-    optionCarimbo.innerText = "Carimbo"
-    filtro.appendChild(optionCarimbo)
-
-    const optionPassaporteCarimbo = document.createElement("option")
-    optionPassaporteCarimbo.value = "Passaporte/Carimbo"
-    optionPassaporteCarimbo.innerText = "Passaporte/Carimbo"
-    filtro.appendChild(optionPassaporteCarimbo)
+    options.forEach(optionData => {
+        const option = document.createElement("option")
+        option.value = optionData.value
+        option.innerText = optionData.value
+        filtro.appendChild(option)
+    })
 
     filtro.addEventListener('change', function(e){
         listMonument.innerHTML = ''
         const value = e.target.value
         trackSelectCustomEvent(value)
+
+        if (value === "all") {
+            addresses.forEach((address) => {
+                createTemplate(address)
+            })
+            return
+        }
+
         const filterAddresses = addresses.filter((addresse)=> {
             return (
                 addresse.underconstruction == value || addresse.description === value
