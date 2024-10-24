@@ -124,7 +124,7 @@ const addresses = [
         description:'',
         address: 'Av. 20 de Setembro, 401-303, Jaguarão - RS, 96300-000',
         flag:'rs',
-        instagram: 'https://www.instagram.com/p/C4YEyZ8OhXW/?locale=en_GB%2Cen_GB',
+        instagram: 'https://www.instagram.com/terrasulmotos/',
         location: {
             lat: '-32.56858123169629',
             lon: '-53.374974233408736',
@@ -199,15 +199,15 @@ const addresses = [
     {
         name: 'Paranamanema - Bar & Restaurante Original Piraju',
         monument: 'Monumento 16',
-        description:'',
+        description:'Passaporte/Carimbo',
         address: 'Av. Dois - FECAPI, Piraju - SP, 18800-000',
         flag:'sp',
-        instagram:'https://www.instagram.com/baroriginalpiraju/',
+        instagram:'https://www.instagram.com/parador_paranapanema/',
         location: {
             lat: '-23.184228109612075',
             lon: '-49.39058729977387',
         },
-        underconstruction: 'Em Construção'
+        underconstruction: 'Construído'
     },
     {
         name: 'Pit Stop Canastra',
@@ -219,6 +219,32 @@ const addresses = [
         location: {
             lat: '-20.324547712287572',
             lon: '-46.35569209146341',
+        },
+        underconstruction: 'Em Construção'
+    },
+    {
+        name: 'Box 1200',
+        monument: 'Monumento 18',
+        description:'',
+        address: 'Av. Luiz José Sereno, 1200 - Jardim Ermida II, Jundiaí - SP, 13212-210',
+        flag:'sp',
+        instagram:'https://www.instagram.com/box1200oficial/',
+        location: {
+            lat: '-23.19186879775487',
+            lon: '-46.962882131356906',
+        },
+        underconstruction: 'Em Construção'
+    },
+    {
+        name: 'Rancho Terra Crua',
+        monument: 'Monumento 19',
+        description:'',
+        address: 'Estrada Servidão do Leme - Bairro da Capela Nova, Salesópolis - SP, 08970-000',
+        flag:'sp',
+        instagram:'https://www.instagram.com/rancho.terracrua/',
+        location: {
+            lat: '-23.521072880913053',
+            lon: '-45.898423422327504',
         },
         underconstruction: 'Em Construção'
     }
