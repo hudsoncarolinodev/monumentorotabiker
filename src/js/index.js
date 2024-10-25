@@ -197,7 +197,7 @@ const addresses = [
         underconstruction: 'Em Construção'
     },
     {
-        name: 'Paranamanema - Bar & Restaurante Original Piraju',
+        name: 'Parador Paranapanema - Bar Original',
         monument: 'Monumento 16',
         description:'Passaporte/Carimbo',
         address: 'Av. Dois - FECAPI, Piraju - SP, 18800-000',
