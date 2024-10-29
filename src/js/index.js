@@ -262,7 +262,7 @@ function createTemplate(address){
     section.appendChild(button)
     listMonument.appendChild(section)
 }
-function initMap() {
+  function initMap() {
     
     //CONFIGURAÇÃO MAPAS
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -326,15 +326,17 @@ function initMap() {
   })
 
   function removerAcentos(str) {
-    return str
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-}
+      return str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+    }
+    
 
+  function selectState(){
+        const select = document.querySelector("#select")
+        const filtro = document.querySelector("#filtro")
 
-function selectState(){
-    const select = document.querySelector("#select")
     addresses.forEach(address => {
        
         const option = document.createElement("option")
@@ -344,15 +346,21 @@ function selectState(){
        
     })
 
+    // Filtro estados
     select.addEventListener('change', function(e){
         listMonument.innerHTML = ''
         const value = e.target.value
         trackSelectCustomEvent(value)
+
+        // Desativa o filtro de descrição
+        filtro.selectedIndex = 0
+
         const filterAddresses = addresses.filter((addresse)=> {
             if(addresse.flag === value){
                 return addresse
             }
         })
+
         if(filterAddresses.length > 0){
             filterAddresses.forEach((address)=>{
                 createTemplate(address)
@@ -368,8 +376,8 @@ function selectState(){
     })
 
 
-    const filtro = document.querySelector("#filtro")
 
+    // Filtro de descrição
     const options = [
         {value: "Em Construção"},
         {value: "Passaporte"},
@@ -388,6 +396,9 @@ function selectState(){
         listMonument.innerHTML = ''
         const value = e.target.value
         trackSelectCustomEvent(value)
+
+        // Desativa o filtro de estado
+        select.selectedIndex = 0
 
         if (value === "all") {
             addresses.forEach((address) => {
