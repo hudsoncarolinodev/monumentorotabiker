@@ -197,9 +197,9 @@ const addresses = [
         underconstruction: 'Em Construção'
     },
     {
-        name: 'Paranamanema - Bar & Restaurante Original Piraju',
+        name: 'Parador Paranamanema - Bar & Restaurante Original Piraju',
         monument: 'Monumento 16',
-        description:'',
+        description:'Passaporte/Carimbo',
         address: 'Av. Dois - FECAPI, Piraju - SP, 18800-000',
         flag:'sp',
         instagram:'https://www.instagram.com/baroriginalpiraju/',
@@ -207,7 +207,7 @@ const addresses = [
             lat: '-23.184228109612075',
             lon: '-49.39058729977387',
         },
-        underconstruction: 'Em Construção'
+        underconstruction: 'Construído'
     },
     {
         name: 'Pit Stop Canastra',
@@ -219,6 +219,32 @@ const addresses = [
         location: {
             lat: '-20.324547712287572',
             lon: '-46.35569209146341',
+        },
+        underconstruction: 'Em Construção'
+    },
+    {
+        name: 'Box 1200',
+        monument: 'Monumento 18',
+        description:'',
+        address: 'Av José Luiz Sereno, 1200 - Jundiaí 13212210',
+        flag:'sp',
+        instagram:'https://www.instagram.com/box1200oficial/',
+        location: {
+            lat: '-23.191867612172500',
+            lon: '-46.96288362459640',
+        },
+        underconstruction: 'Em Construção'
+    },
+    {
+        name: 'Rancho Terra Crua',
+        monument: 'Monumento 19',
+        description:'',
+        address: 'Estrada Servidão do Leme, 330 - Salesópolis 08970000',
+        flag:'sp',
+        instagram:'https://www.instagram.com/rancho.terracrua/',
+        location: {
+            lat: '-23.521152325011',
+            lon: '-45.89842861630158',
         },
         underconstruction: 'Em Construção'
     }
