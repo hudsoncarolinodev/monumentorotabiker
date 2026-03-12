@@ -1,611 +1,146 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+/*
+Theme Name: Alias
+Theme URI: http://www.hudsoncarolino.com.br
+Author: Hudson Carolino
+Author URI: https://hudsoncarolino.com.br;
+Description: Descrição do thema.
+Version: 1.0
 
+--------------------------------------------
+ESTRUTURAÇÃO BASE
+--------------------------------------------
+**** DECLARAÇÃO DE VARIÁVEIS
+**** ESTILOS GERAIS
+**** BODY
+**** HEADER
+**** FOOTER
+**** PÁGINA INICIAL
+**** EXTRAS
+**** @MEDIA
+*/
+/* DECLARAÇÃO DE VARIÁVEIS */
 :root {
-  --font: 'Outfit', sans-serif;
-  --bg-dark: #0a0a0b;
-  --bg-card: #141416;
-  --bg-elevated: #1c1c1f;
-  --text: #fafafa;
-  --text-muted: #a1a1aa;
-  --accent: #f59e0b;
-  --accent-hover: #fbbf24;
-  --accent-muted: rgba(245, 158, 11, 0.15);
-  --border: rgba(255, 255, 255, 0.08);
-  --success: #22c55e;
-  --warning: #eab308;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-  --transition: 0.2s ease;
+  font-family: "Open Sans", sans-serif;
 }
 
-*, *::before, *::after {
+/* ESTILOS GERAIS */
+html, body, figure, img, div, section, article, input, header, footer, button, textarea, p, h1, h2, h3, h4, h5, h6, ul, li, a {
   margin: 0;
   padding: 0;
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
 }
 
 body {
-  font-family: var(--font);
-  background: var(--bg-dark);
-  color: var(--text);
-  padding-top: 100vh;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  background-color: #121212;
+  padding-top: 100vh;;
 }
-
-body.seo-page {
-  padding-top: 0;
-}
-
-/* Map */
 #map {
+    height: 100vh;
+    width: 100%;
+}
+.map-area{
+  position: fixed;
+  top: 0;
   height: 100vh;
   width: 100%;
 }
-
-.map-area {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: 0;
-}
-
-/* Floating controls overlay */
-.map-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  padding: 16px 20px;
-  background: linear-gradient(180deg, rgba(10, 10, 11, 0.95) 0%, rgba(10, 10, 11, 0.7) 70%, transparent 100%);
-  backdrop-filter: blur(12px);
-}
-
-.map-overlay-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.brand-icon {
-  font-size: 1.75rem;
-}
-
-.brand-text {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.search-form {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.search-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-
-.search-form input#search {
-  flex: 1;
-  min-width: 220px;
-  height: 48px;
-  padding: 0 18px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  font-family: var(--font);
-  font-size: 0.95rem;
-  transition: var(--transition);
-}
-
-.search-form input#search::placeholder {
-  color: var(--text-muted);
-}
-
-.search-form input#search:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-muted);
-}
-
-.filter-group {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.filter-group select {
-  height: 48px;
-  min-width: 140px;
-  padding: 0 36px 0 14px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  font-family: var(--font);
-  font-size: 0.9rem;
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23a1a1aa' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  transition: var(--transition);
-}
-
-.filter-group select:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-.filter-group select option {
-  background: var(--bg-card);
-  color: var(--text);
-}
-
-.main-content {
+main{
   position: relative;
   z-index: 2;
-  background: var(--bg-dark);
 }
-
-.list-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 24px;
-  background: var(--bg-card);
-  border-bottom: 1px solid var(--border);
-}
-
-.list-count {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.list-count strong {
-  color: var(--accent);
-}
-
-.ig-main-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: color var(--transition);
-}
-
-.ig-main-link:hover {
-  color: var(--accent);
-}
-
-.ig-main-link img {
-  width: 20px;
-  height: 20px;
-}
-
-/* Monument list */
-.listMonument {
-  min-height: 100vh;
-  padding: 24px 20px 48px;
-  max-width: 800px;
+section{
+  padding: 20px 30px;
+  background: #fff;
+  border-bottom: solid 1px #585858;
+  font-weight: 100px;
   margin: 0 auto;
 }
-
-.monument-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  margin-bottom: 16px;
-  transition: var(--transition);
-}
-
-.monument-card:hover {
-  border-color: rgba(245, 158, 11, 0.3);
-  box-shadow: var(--shadow);
-}
-
-.monument-card .card-header {
+section header{
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 16px;
+  align-items: start;
 }
 
-.monument-card .card-title-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
-  flex: 1;
-  min-width: 0;
-}
-
-.monument-card .card-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: var(--accent-muted);
-  color: var(--accent);
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: 6px;
-}
-
-.monument-card .card-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.monument-card .card-title a {
-  color: var(--text);
-  transition: color var(--transition);
-}
-
-.monument-card .card-title a:hover {
-  color: var(--accent);
-}
-
-.badge {
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 6px;
-}
-
-.badge-warning {
-  background: rgba(234, 179, 8, 0.2);
-  color: var(--warning);
-}
-
-.monument-card .card-flag {
-  width: 40px;
-  height: 28px;
+header img{
+  max-width: 50px;
+  height: 50px;
   object-fit: cover;
-  border-radius: 4px;
-  flex-shrink: 0;
+  border-radius: 5px;
 }
-
-.monument-card .card-meta {
+h2{
+  color: #0d0f0d;
+}
+h3{
+  color: #0d0f0d;
+}
+p{
+  color: #0d0f0d;
+}
+.em-construcao{
+  background-color: rgb(196, 136, 8);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 5px;
+  margin-left: 8px;
+  font-size: 14px;
+}
+section a{
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  margin-bottom: 16px;
-  font-size: 0.875rem;
-  color: var(--text-muted);
+    align-items: center;
+    justify-content: start;
+    gap: 4px;
+    flex-direction: row-reverse;
+    margin-top: 5px;
+    font-size: 12px;
+}
+a img{
+  max-width: 20px;
 }
 
-.monument-card .card-meta strong {
-  color: var(--text);
-  font-weight: 500;
-}
+.search{
 
-.em-construcao {
-  background: var(--warning);
-  color: var(--bg-dark);
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-left: 6px;
 }
-
-.card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
+.search h5{
+  font-size: 29px;
+  color: #555;
 }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 20px;
-  border-radius: var(--radius-sm);
-  font-family: var(--font);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  text-decoration: none;
-  border: none;
+.search label{
+  font-size: 12px;
 }
-
-.btn-primary {
-  background: var(--accent);
-  color: var(--bg-dark);
-}
-
-.btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-}
-
-.btn-ghost:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.monument-card .card-body {
-  margin-bottom: 16px;
-}
-
-.monument-card .card-address {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-  line-height: 1.5;
-}
-
-.monument-card .card-desc {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-}
-
-.monument-card .card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-}
-
-.monument-card .card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  text-decoration: none;
-  transition: color var(--transition);
-}
-
-.monument-card .card-link:hover {
-  color: var(--accent);
-}
-
-.monument-card .card-link img {
-  width: 18px;
-  height: 18px;
-  opacity: 0.8;
-}
-
-.btn-route {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 44px;
-  padding: 0 24px;
-  background: var(--accent);
-  color: var(--bg-dark);
-  border: none;
-  border-radius: var(--radius-sm);
-  font-family: var(--font);
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  width: 100%;
-}
-
-.btn-route:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-}
-
-.btn-route .btn-icon {
-  font-size: 1rem;
-}
-
-.card-links {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.card-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  transition: color var(--transition);
-}
-
-.card-links a:hover {
-  color: var(--accent);
-}
-
-.card-links img {
-  width: 18px;
-  height: 18px;
-  opacity: 0.8;
-}
-
-.description-row {
-  display: none;
-}
-
-.description-row.visible {
+.search input{
   display: block;
-}
-
-/* SEO Pages */
-.page-header {
-  padding: 24px 24px;
-  background: var(--bg-card);
-  border-bottom: 1px solid var(--border);
-}
-
-.page-header a {
-  color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 12px;
-  transition: color var(--transition);
-}
-
-.page-header a:hover {
-  color: var(--accent-hover);
-}
-
-.page-header h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.02em;
-}
-
-.monument-page,
-.city-page,
-.route-page {
-  padding: 32px 24px 48px;
-  background: var(--bg-dark);
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.monument-page article p,
-.city-page p,
-.route-page p {
-  margin: 12px 0;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
-.monument-page article strong,
-.city-page strong,
-.route-page strong {
-  color: var(--text);
-}
-
-.monument-page a,
-.city-page a,
-.route-page a {
-  color: var(--accent);
-}
-
-.monument-page a:hover,
-.city-page a:hover,
-.route-page a:hover {
-  color: var(--accent-hover);
-}
-
-.monument-map {
-  height: 280px;
+  border: solid 1px;
+  border-radius: 5px;
   width: 100%;
-  margin-top: 24px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
+  height: 30px;
+  padding: 20px 10px;
 }
 
-.monument-list {
-  list-style: none;
-  padding: 0;
+.listMonument{
+  min-height: 100vh;
+  background-color: #fff;
 }
 
-.monument-list li {
-  margin: 12px 0;
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.monument-list a {
-  color: var(--accent);
-}
-
-/* Legacy section overrides */
-section {
-  padding: 0;
-  background: transparent;
-  border: none;
-  font-weight: inherit;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-  .map-overlay {
-    padding: 12px 16px;
-  }
-
-  .search-row {
-    flex-direction: column;
-  }
-
-  .search-form input#search {
-    min-width: 100%;
-  }
-
-  .filter-group select {
-    min-width: 100%;
-  }
-
-  .listMonument {
-    padding: 20px 16px 40px;
-  }
-
-  .monument-card {
-    padding: 16px 20px;
-  }
-
-  .card-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
+button{
+  display: block;
+  width: 150px;
+  height: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #0d0f0d;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
 }
