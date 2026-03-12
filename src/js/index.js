@@ -4,38 +4,56 @@ import { monumentos } from './data.js'
 const addresses = monumentos;
 
 const listMonument = document.querySelector(".listMonument")
+
+function updateListCount(count) {
+  const el = document.getElementById("listCount")
+  if (el) el.textContent = count === 1 ? "1 parada" : `${count} paradas`
+}
+
+function renderList(items) {
+  if (!listMonument) return
+  listMonument.innerHTML = ""
+  items.forEach((address) => createTemplate(address))
+  updateListCount(items.length)
+}
+
 if (listMonument) {
-addresses.forEach((address)=>{
-    createTemplate(address)
-})}
+  renderList(addresses)
+}
 
 function createTemplate(address){
-    const section = document.createElement("section")
+    const section = document.createElement("article")
+    section.className = "monument-card"
     const button = document.createElement("button")
+    button.className = "btn-route"
     button.addEventListener("click", abrirNoGoogleMaps)
-    button.innerText = "Calcular rota"
+    button.innerHTML = '<span class="btn-icon">📍</span> Calcular rota'
     button.id = address.monument.replace(" ", "-")
     button.setAttribute('data-endeco', address?.location?.lat?`${address?.location?.lat} ${address?.location?.lon}`: `${address.address}`)
     
     const monumentLink = address.slug ? `/monumento/${address.slug}/` : '#'
+    const badgeHtml = address.underconstruction === 'Em Construção' ? '<span class="badge badge-warning">Em construção</span>' : ''
     
     section.innerHTML = `
-    <header>
-    <h2>Parada: <a href="${monumentLink}">${address.name}</a></h2>
-    
-    <img src="./src/img/${address.flag}.png" alt="${address.address}">
-    </header>
-    <p><strong>Monumento:</strong> ${address.monument}<span class="em-construcao">${address.underconstruction}<span></p>
-    <p class="description"><strong>Descrição:</strong> ${address.description}</p>
-    <p><strong>Endereço:</strong> ${address.address}</p>
-    <p><a class="instagram" title="${address.monument}" target="_blank" href="${address.instagram}">@${address.name} <img src="./src/img/instagram.png" alt="Instagram"></a><p>
-    <p><a class="instagramRotaBiker" target="_blank" href="https://www.instagram.com/rota_biker/">Instagram oficial Rota Biker <img src="./src/img/instagram.png" alt="Instagram"></a><p>
+    <div class="card-header">
+      <div class="card-title-wrap">
+        <span class="card-number">${address.monument.replace('Monumento ', '')}</span>
+        <h2 class="card-title"><a href="${monumentLink}">${address.name}</a></h2>
+        ${badgeHtml}
+      </div>
+      <img src="./src/img/${address.flag}.png" alt="${address.flag.toUpperCase()}" class="card-flag">
+    </div>
+    <div class="card-body">
+      <p class="card-address">${address.address}</p>
+      <p class="card-desc description">${address.description || 'Parada Rota Biker'}</p>
+      <div class="card-actions">
+        <a class="card-link instagram" title="${address.monument}" target="_blank" rel="noopener" href="${address.instagram}">
+          <img src="./src/img/instagram.png" alt=""> Ver Instagram
+        </a>
+        <a class="card-link" target="_blank" rel="noopener" href="https://www.instagram.com/rota_biker/">Rota Biker Oficial</a>
+      </div>
+    </div>
     `
-    const underConstruction = section.querySelector(".em-construcao")
-    if (address.underconstruction !== "Em Construção") {
-        underConstruction.style.display = "none"
-    }
-
     const description = section.querySelector(".description")
     if(!address.description) {
         description.style.display = "none"
@@ -88,11 +106,14 @@ function initMap() {
   window.initMap = initMap;
 
 
-  document.querySelector("input").addEventListener('keyup', function(e){
+  const searchInput = document.querySelector("#search")
+  if (searchInput && listMonument) {
+  searchInput.addEventListener('keyup', function(e){
     const value = e.target.value.toLowerCase().trim()
     listMonument.innerHTML = ''
     const filterAddresses = addresses.filter((addresse)=> {
-        if(removerAcentos(addresse.name).includes(value) || removerAcentos(addresse.description).includes(value) || removerAcentos(addresse.address).includes(value) || removerAcentos(addresse.monument).includes(value)){
+        const desc = (addresse.description || '').toString()
+        if(removerAcentos(addresse.name).includes(value) || removerAcentos(desc).includes(value) || removerAcentos(addresse.address).includes(value) || removerAcentos(addresse.monument).includes(value)){
             return addresse
         }
     })
@@ -119,14 +140,14 @@ function initMap() {
   function selectState(){
         const select = document.querySelector("#select")
         const filtro = document.querySelector("#filtro")
+        if (!select || !filtro) return
 
-    addresses.forEach(address => {
-       
+    const uniqueFlags = [...new Set(addresses.map((a) => a.flag))].sort()
+    uniqueFlags.forEach((flag) => {
         const option = document.createElement("option")
-        option.value = address.flag
-        option.innerText = address.flag.toUpperCase()
+        option.value = flag
+        option.innerText = flag.toUpperCase()
         select.appendChild(option)
-       
     })
 
     // Filtro estados

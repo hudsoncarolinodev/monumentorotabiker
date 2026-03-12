@@ -87,7 +87,7 @@
     </style>
   </head>
 
-  <body>
+  <body class="home-page">
     <!-- CONTEÚDO SEO OCULTO -->
     <div class="visually-hidden">
       <h1>Rota Biker – Monumentos e rotas para motociclistas no Brasil</h1>
@@ -141,41 +141,38 @@
 
     <div class="map-area">
       <div id="map"></div>
-    </div>
-
-    <main>
-      <section class="search">
-        <h2 class="visually-hidden">Buscar Paradas da Rota Biker</h2>
-
-        <form action="/">
-          <div>
-            <label for="search" class="visually-hidden"
-              >Pesquise por monumento ou parada</label
-            >
-            <input
-              id="search"
-              type="text"
-              placeholder="Pesquisar parada biker"
-            />
-          </div>
-
-          <div>
-            <label for="select" class="visually-hidden"
-              >Pesquisar por estado</label
-            >
-
-            <select name="select" id="select">
-              <option value="all" selected>Todos</option>
-            </select>
-
-            <label for="filtro" class="visually-hidden">Filtro</label>
-
-            <select name="filtro" id="filtro">
-              <option value="all" selected>Todos</option>
-            </select>
+      <div class="map-overlay">
+        <div class="map-overlay-brand">
+          <span class="brand-icon">🏍</span>
+          <span class="brand-text">Rota Biker</span>
+        </div>
+        <form class="search-form">
+          <h2 class="visually-hidden">Buscar Paradas da Rota Biker</h2>
+          <div class="search-row">
+            <label for="search" class="visually-hidden">Pesquise por monumento ou parada</label>
+            <input id="search" type="text" placeholder="Buscar parada, cidade ou rota..." autocomplete="off" />
+            <div class="filter-group">
+              <label for="select" class="visually-hidden">Estado</label>
+              <select name="select" id="select" aria-label="Filtrar por estado">
+                <option value="all" selected>Todos os estados</option>
+              </select>
+              <label for="filtro" class="visually-hidden">Tipo</label>
+              <select name="filtro" id="filtro" aria-label="Filtrar por tipo">
+                <option value="all" selected>Todos</option>
+              </select>
+            </div>
           </div>
         </form>
-      </section>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <div class="list-header">
+        <span class="list-count" id="listCount">34 paradas</span>
+        <a href="https://www.instagram.com/rota_biker/" target="_blank" rel="noopener" class="ig-main-link">
+          <img src="./src/img/instagram.png" alt="" /> @rota_biker
+        </a>
+      </div>
 
       <section class="visually-hidden">
         <h2>Turismo de moto no Brasil</h2>
@@ -197,7 +194,7 @@
     </main>
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbD-&callback=AIzaSyCbD-3PCr0P9wXG_BBo2VHl_03zdqmcE7MinitMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbD-3PCr0P9wXG_BBo2VHl_03zdqmcE7M&callback=initMap&v=weekly"
       defer
     ></script>
   </body>
