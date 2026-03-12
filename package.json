@@ -1,0 +1,9 @@
+{
+  "name": "monumentorotabiker",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build:seo": "node scripts/build.js",
+    "build": "npm run build:seo"
+  }
+}

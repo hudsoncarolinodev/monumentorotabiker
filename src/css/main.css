@@ -38,7 +38,12 @@ html, body, figure, img, div, section, article, input, header, footer, button, t
 
 body {
   background-color: #121212;
-  padding-top: 100vh;;
+  padding-top: 100vh;
+}
+
+/* Páginas SEO sem mapa fixo no topo */
+body.seo-page {
+  padding-top: 0;
 }
 #map {
     height: 100vh;
@@ -143,4 +148,56 @@ button{
   color: #fff;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+/* Páginas SEO - monumento, cidade, rota */
+.page-header {
+  padding: 20px 30px;
+  background: #fff;
+  border-bottom: 1px solid #585858;
+}
+
+.page-header a {
+  color: #0d0f0d;
+  font-size: 14px;
+}
+
+.page-header h1 {
+  margin-top: 10px;
+  color: #0d0f0d;
+}
+
+.monument-page,
+.city-page,
+.route-page {
+  padding: 20px 30px;
+  background: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.monument-page article p,
+.city-page p,
+.route-page p {
+  margin: 10px 0;
+}
+
+.monument-map {
+  height: 300px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.monument-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.monument-list li {
+  margin: 8px 0;
+}
+
+.monument-list a {
+  color: #0d0f0d;
 }
